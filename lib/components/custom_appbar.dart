@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/utils/colors.dart';
+
+import '../core/config/theme/app_colors.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbar({super.key, required this.appbarTitle});
@@ -19,7 +20,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
           color: Colors.white,
         ),
       ),
-      backgroundColor: primary,
+      backgroundColor: AppColors.primary,
     );
   }
 
