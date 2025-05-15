@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/components/custom_appbar.dart';
+
+import '../../core/components/custom_appbar.dart';
 
 import 'component/movie_list_view.dart';
 

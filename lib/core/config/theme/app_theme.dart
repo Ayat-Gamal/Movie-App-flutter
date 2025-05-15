@@ -5,25 +5,25 @@ class AppTheme {
   static final appTheme = ThemeData(
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: AppColors.secondBackground,
-    brightness: Brightness.dark,
+    brightness: Brightness.light,
     snackBarTheme: const SnackBarThemeData(
-      backgroundColor: AppColors.secondary,
-      contentTextStyle: TextStyle(color: Colors.white),
+      backgroundColor: AppColors.primaryTwo,
+      contentTextStyle: TextStyle(color: Colors.black),
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: AppColors.secondary,
+      fillColor: AppColors.primaryTwo,
       hintStyle: const TextStyle(
-        color: Color(0xffa7a7a7),
+        color: AppColors.secondBackground,
         fontWeight: FontWeight.w500,
       ),
       contentPadding: const EdgeInsets.all(16),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(8),
         borderSide: BorderSide.none,
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(8),
         borderSide: BorderSide.none,
       ),
     ),

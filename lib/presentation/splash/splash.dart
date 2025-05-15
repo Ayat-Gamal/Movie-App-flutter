@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
+import '../../common/helper/navigation/app_navigation.dart';
+import '../auth/signin.dart';
+import '../home/home.dart';
 import 'cubit/splash_cubit.dart';
 
 class Splash extends StatelessWidget {
@@ -12,8 +16,14 @@ class Splash extends StatelessWidget {
       body: BlocListener<SplashCubit, SplashState>(
         listener: ( context, state) {
 
-          if (state is UnAuthenticated) {}
-          if (state is Authenticated) {}
+          if (state is UnAuthenticated) {
+              AppNavigation.pushReplacement(context, Signin());
+
+          }
+          if (state is Authenticated) {
+            AppNavigation.pushReplacement(context, Home());
+
+          }
         },
         child: Center(
           child: Column(

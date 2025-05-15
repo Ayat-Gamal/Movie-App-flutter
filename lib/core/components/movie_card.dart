@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/components/custom_text.dart';
+
+import 'custom_text.dart';
+
 
 class MovieCard extends StatelessWidget {
   const MovieCard({super.key});
