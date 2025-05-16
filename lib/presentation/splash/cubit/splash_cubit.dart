@@ -1,5 +1,9 @@
 import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
+import 'package:movie_app/domain/auth/repositories/auth.dart';
+
+import '../../../service_locator.dart';
 
 part 'splash_state.dart';
 
@@ -8,6 +12,14 @@ class SplashCubit extends Cubit<SplashState> {
 
   void appStarted() async {
     await Future.delayed(Duration(seconds: 2));
-    emit(Authenticated());
-  }
+
+    var isSignedIn = await sl<AuthRepository>().isLoggedIn();
+    if (isSignedIn) {
+      emit(Authenticated());
+      print("auth cubit");
+    } else {
+      print("Un auth cubiy");
+      emit(UnAuthenticated());
+    }
+   }
 }

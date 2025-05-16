@@ -1,18 +1,29 @@
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:movie_app/data/datasources/auth/auth_firebase_service.dart';
+import 'package:movie_app/data/models/auth/SigninReqParam.dart';
 
 import '../../../domain/auth/repositories/auth.dart';
+import '../../../service_locator.dart';
+import '../../models/auth/signup_req_param.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
+
   @override
-  Future signin() {
-    // TODO: implement signin
-    throw UnimplementedError();
+  Future<Either> signup(SignupReqParam params) async{
+   return await sl<AuthService>().signup(params);
   }
 
   @override
-  Future<Either> signup() {
-    throw UnimplementedError();
+  Future<Either> signin(SigninReqParam params)async {
+    return await sl<AuthService>().signin(params);
 
   }
 
+  @override
+  Future<bool> isLoggedIn() async{
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    print("USER ${_auth.currentUser?.email}");
+     return _auth.currentUser != null;
+  }
 }

@@ -1,13 +1,21 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/data/models/auth/signup_req_param.dart';
+import 'package:movie_app/domain/auth/usecases/signin.dart';
 import 'package:movie_app/presentation/auth/signin.dart';
-
+import 'package:reactive_button/reactive_button.dart';
+import '../../common/helper/message/dispaly_message.dart';
 import '../../common/helper/navigation/app_navigation.dart';
 import '../../core/config/theme/app_colors.dart';
-
+import '../../domain/auth/usecases/signup.dart';
+import '../../service_locator.dart';
+import '../home/home.dart';
 
 class Signup extends StatelessWidget {
-  const Signup({super.key});
+  Signup({super.key});
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +34,7 @@ class Signup extends StatelessWidget {
             _passwordField(),
 
             SizedBox(height: 30),
-            _signupButton(),
+            _signupButton(context),
             SizedBox(height: 30),
 
             _signupText(context),
@@ -49,6 +57,7 @@ class Signup extends StatelessWidget {
 
   Widget _emailField() {
     return TextField(
+      controller: _emailController,
       decoration: InputDecoration(
         hintText: "Email",
         hintStyle: TextStyle(color: Colors.white54),
@@ -58,6 +67,7 @@ class Signup extends StatelessWidget {
 
   Widget _passwordField() {
     return TextField(
+      controller: _passwordController,
       keyboardType: TextInputType.visiblePassword,
       decoration: InputDecoration(
         hintText: "Password",
@@ -66,45 +76,42 @@ class Signup extends StatelessWidget {
     );
   }
 
-  Widget _signupButton() {
-    return TextButton(
-      style: TextButton.styleFrom(
-        padding: EdgeInsets.symmetric(horizontal: 78  ,vertical: 16),
-        backgroundColor: AppColors.headlines,
-        side: BorderSide(color: Colors.white, width: 2),
+  Widget _signupButton(context) {
+    return ReactiveButton(
+        title: "Sign Up",
+        activeColor: AppColors.primary,
+        onPressed: ()async => sl<SignupUseCase>().call(
+          params: SignupReqParam(email: _passwordController.text,
+              password: _passwordController.text)
+        ),
+        onSuccess: (){
+          AppNavigation.pushAndRemove(context, Home());
+        }, onFailure: (error){
+      DisplayMessage.errorMessage(error, context);
 
-      ),
-      child: Text(
-        'Sign Up',
-        style: TextStyle(fontSize: 24, color: Colors.white),
-      ),
-      onPressed: () {  print("Sign in pressed");},
+
+    }
+
     );
   }
 
-  Widget _signupText(BuildContext context){
+  Widget _signupText(BuildContext context) {
     return Text.rich(
-        TextSpan(
-
-            children: [
-              TextSpan(
-                  text: "Already have an account?"
-              ),
-              TextSpan(
-                  text: " Sign In",
-                  style: TextStyle(
-                    color: Colors.blue,
-
-                  ),
-                  recognizer: TapGestureRecognizer()..onTap =(){
+      TextSpan(
+        children: [
+          TextSpan(text: "Already have an account?"),
+          TextSpan(
+            text: " Sign In",
+            style: TextStyle(color: Colors.blue),
+            recognizer:
+                TapGestureRecognizer()
+                  ..onTap = () {
                     //  print("Sign up text pressed");
                     AppNavigation.push(context, Signin());
-                  }
-              ),
-
-            ]
-        )
-
+                  },
+          ),
+        ],
+      ),
     );
   }
 }

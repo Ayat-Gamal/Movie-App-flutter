@@ -1,10 +1,15 @@
 import 'package:dartz/dartz.dart';
 
+import '../../../data/models/auth/SigninReqParam.dart';
+import '../../../data/models/auth/signup_req_param.dart';
+
 abstract class AuthRepository{
 
 
-  Future<Either> signup();
-  Future signin();
+  Future<Either> signup(SignupReqParam params);
+  Future<Either> signin(SigninReqParam params);
+  Future<bool> isLoggedIn();
+
 
 }
 

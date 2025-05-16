@@ -1,6 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 import '../../common/helper/navigation/app_navigation.dart';
 import '../auth/signin.dart';
@@ -14,15 +14,12 @@ class Splash extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocListener<SplashCubit, SplashState>(
-        listener: ( context, state) {
-
+        listener: (context, state) {
           if (state is UnAuthenticated) {
-              AppNavigation.pushReplacement(context, Signin());
-
+            AppNavigation.pushReplacement(context, Signin());
           }
-          if (state is Authenticated) {
+         else if (state is Authenticated) {
             AppNavigation.pushReplacement(context, Home());
-
           }
         },
         child: Center(
