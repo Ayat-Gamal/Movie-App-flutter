@@ -22,8 +22,8 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<bool> isLoggedIn() async{
-    final FirebaseAuth _auth = FirebaseAuth.instance;
-    print("USER ${_auth.currentUser?.email}");
-     return _auth.currentUser != null;
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    print("USER ${auth.currentUser?.email}");
+     return auth.currentUser != null;
   }
 }

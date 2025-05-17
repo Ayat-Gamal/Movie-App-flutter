@@ -20,7 +20,7 @@ void setupServiceLocator(){
 
   //repository
   sl.registerSingleton<AuthRepository>(AuthRepositoryImpl());
-  //usecase
+  //UseCases
   sl.registerSingleton<SignupUseCase>(SignupUseCase());
   sl.registerSingleton<SigninUseCase>(SigninUseCase());
   sl.registerSingleton<IsLoggedInUseCase>(IsLoggedInUseCase());

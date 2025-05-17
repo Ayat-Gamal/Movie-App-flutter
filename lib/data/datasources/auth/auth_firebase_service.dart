@@ -25,37 +25,51 @@ class AuthFirebaseServiceImpl extends AuthService {
           );
       return Right(credential);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
-        return Left(e.message);
-      } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
-        return Left(e.message);
+      switch (e.code) {
+        case 'email-already-in-use':
+          return Left('The email is already in use by another account.');
+        case 'invalid-email':
+          return Left('The email address is not valid.');
+        case 'operation-not-allowed':
+          return Left('Email/password accounts are not enabled.');
+        case 'weak-password':
+          return Left('The password is too weak. Try something stronger.');
+        default:
+          return Left(e.message ?? "Authentication error");
       }
     } catch (e) {
       print(e);
-      return Left(e);
+      return Left("Unexpected error: ${e.toString()}");
     }
-    return Left("End of function");
   }
 
   @override
   Future<Either> signin(SigninReqParam params) async {
     try {
+      if (params.email.isEmpty || params.password.isEmpty) {
+        return Left("Email and password cannot be empty.");
+      }
+
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: params.email,
         password: params.password,
       );
       return Right(credential);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-        return Left(e.message);
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
-        return Left(e.message);
+      switch (e.code) {
+        case 'user-not-found':
+          return Left('No user found for that email.');
+        case 'wrong-password':
+          return Left('Wrong password provided for that user.');
+        case 'invalid-email':
+          return Left('Email address is not valid.');
+        case 'user-disabled':
+          return Left('This user has been disabled.');
+        default:
+          return Left(e.message ?? "Authentication error");
       }
+    } catch (e) {
+      return Left("Unexpected error: ${e.toString()}");
     }
-   return Right("Succ");
   }
 }

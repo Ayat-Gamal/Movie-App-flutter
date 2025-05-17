@@ -1,8 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 import 'package:movie_app/domain/auth/repositories/auth.dart';
-
 import '../../../service_locator.dart';
 
 part 'splash_state.dart';
@@ -18,8 +16,8 @@ class SplashCubit extends Cubit<SplashState> {
       emit(Authenticated());
       print("auth cubit");
     } else {
-      print("Un auth cubiy");
+      print("Un auth cubit");
       emit(UnAuthenticated());
     }
-   }
+  }
 }
