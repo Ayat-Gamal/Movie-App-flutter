@@ -29,7 +29,7 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: height ?? 80,
       title: title ?? Text(' '),
       titleSpacing: 0,
-     // centerTitle: true,
+      centerTitle: true,
       leadingWidth: leading != null ? 56 : null,
       actions: [action ?? Container()],
       leading:
