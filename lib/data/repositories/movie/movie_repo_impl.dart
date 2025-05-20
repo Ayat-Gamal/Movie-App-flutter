@@ -23,4 +23,23 @@ class MovieRepositoryImpl implements MovieRepository {
       },
     );
   }
+
+  @override
+  Future<Either> getNowPlayingMovies() async {
+    var returnData = await sl<MovieService>().getNowPLayingMovies();
+
+    return returnData.fold(
+      (error) {
+        return Left(error);
+      },
+      (data) {
+        var movies =
+            List.from(data['results'])
+                .map((item) => MovieMapper.toEntity(MovieModel.fromJson(item)))
+                .toList();
+
+        return Right(movies);
+      },
+    );
+  }
 }

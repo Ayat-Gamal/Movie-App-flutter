@@ -4,8 +4,10 @@ import 'package:movie_app/common/helper/navigation/app_navigation.dart';
 import 'package:movie_app/common/widget/appbar/app_bar.dart';
 import 'package:movie_app/core/components/custom_text.dart';
 import 'package:movie_app/presentation/auth/signin.dart';
+import 'package:movie_app/presentation/home/widgets/category_text.dart';
+import 'package:movie_app/presentation/home/widgets/now_palying_movies.dart';
+import 'package:movie_app/presentation/home/widgets/popular_tv.dart';
 import 'package:movie_app/presentation/home/widgets/trending_movies.dart';
-import 'package:movie_app/presentation/home/widgets/trending_text.dart';
 import '../../core/config/theme/app_colors.dart';
 
 class Home extends StatelessWidget {
@@ -37,7 +39,18 @@ class Home extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [TrendingText(), TrendingMovies()],
+          children: [
+            CategoryText(title: "Trending 🔥"),
+            TrendingMovies(),
+            SizedBox(height: 16),
+            CategoryText(title: "Now PLaying"),
+            SizedBox(height: 16),
+            NowPlayingMovies(),
+            CategoryText(title: "Popular TV"),
+            SizedBox(height: 16),
+            PopularTv(),
+            SizedBox(height: 16),
+          ],
         ),
       ),
     );

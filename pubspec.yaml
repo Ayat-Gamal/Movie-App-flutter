@@ -23,6 +23,7 @@ dependencies:
   flutter_svg:
   build_runner:
   fan_carousel_image_slider:
+  flutter_dotenv:
 
 dev_dependencies:
   flutter_test:
@@ -34,3 +35,4 @@ flutter:
   assets:
     - assets/images/
     - assets/vectors/
+    - .env
