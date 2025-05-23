@@ -18,8 +18,9 @@ class VideoPlayer extends StatelessWidget {
             return Center(child: CircularProgressIndicator());
           }
           if (state is TrailerLoaded) {
-            return YoutubePlayer(controller: state.youtubePlayerController,
-              showVideoProgressIndicator: false,
+            return YoutubePlayer(
+              controller: state.youtubePlayerController,
+              showVideoProgressIndicator: true,
             );
           }
           if (state is FailureLoadTrailer) {

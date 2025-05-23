@@ -35,5 +35,8 @@ class AppTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
       ),
     ),
+    primaryTextTheme: TextTheme(
+      bodyMedium: TextStyle(fontSize: 14, color: AppColors.primary),
+    ),
   );
 }

@@ -55,7 +55,7 @@ class MovieRepositoryImpl implements MovieRepository {
       },
       (data) {
         var movies = TrailerMapper.toEntity(
-          TrailerModel.fromJson(data['results']),
+          TrailerModel.fromJson(data['results'][0]),
         );
         return Right(movies);
       },
