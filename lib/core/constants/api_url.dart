@@ -8,4 +8,8 @@ class ApiUrl {
   static const nowPlayingMovies = '${baseURL}movie/now_playing?api_key=';
   static const topRatedMovies = '${baseURL}movie/top_rated?api_key=';
   static const popularTV = '${baseURL}tv/popular?api_key=';
+  static const movieTrailer = '${baseURL}movie/';
+  static const trailerBaseURL = 'https://www.youtube.com/watch?v=';
+
+   // https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=
  }

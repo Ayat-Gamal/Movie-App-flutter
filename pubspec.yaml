@@ -16,7 +16,7 @@ dependencies:
   dio: ^5.4.0
   logger: ^2.0.2+1
   get_it: ^7.6.7
-  shared_preferences: ^2.2.2
+  shared_preferences:
   firebase_core: ^2.32.0
   firebase_auth: ^4.19.0
   reactive_button:
@@ -24,6 +24,8 @@ dependencies:
   build_runner:
   fan_carousel_image_slider:
   flutter_dotenv:
+  video_player:
+  youtube_player_flutter:
 
 dev_dependencies:
   flutter_test:

@@ -15,6 +15,7 @@ import 'data/repositories/tv/tv_repo_impl.dart';
 import 'domain/auth/usecases/signin.dart';
 import 'domain/auth/usecases/signup.dart';
 import 'domain/moive/repositories/movie_repo.dart';
+import 'domain/moive/usecases/get_movie_trailer.dart';
 
 final sl = GetIt.instance;
 
@@ -39,4 +40,5 @@ void setupServiceLocator() {
   sl.registerSingleton<GetTrendingMovieUseCase>(GetTrendingMovieUseCase());
   sl.registerSingleton<GetNowPlayingMovieUseCase>(GetNowPlayingMovieUseCase());
   sl.registerSingleton<GetPopularTVUseCase>(GetPopularTVUseCase());
+  sl.registerSingleton<GetMovieTrailerUseCase>(GetMovieTrailerUseCase());
 }
