@@ -6,6 +6,8 @@ import 'package:movie_app/data/repositories/auth/auth.dart';
 import 'package:movie_app/domain/auth/repositories/auth.dart';
 import 'package:movie_app/domain/auth/usecases/is_logged_in.dart';
 import 'package:movie_app/domain/moive/usecases/get_now_playing_movies.dart';
+import 'package:movie_app/domain/moive/usecases/get_recommendation_movies.dart';
+import 'package:movie_app/domain/moive/usecases/get_similar_movies.dart';
 import 'package:movie_app/domain/moive/usecases/get_trending_movie.dart';
 import 'package:movie_app/domain/tv/repositories/tv.dart';
 import 'package:movie_app/domain/tv/usecase/get_popular_tv.dart';
@@ -41,4 +43,6 @@ void setupServiceLocator() {
   sl.registerSingleton<GetNowPlayingMovieUseCase>(GetNowPlayingMovieUseCase());
   sl.registerSingleton<GetPopularTVUseCase>(GetPopularTVUseCase());
   sl.registerSingleton<GetMovieTrailerUseCase>(GetMovieTrailerUseCase());
+  sl.registerSingleton<GetRecommendationMovieUseCase>(GetRecommendationMovieUseCase());
+  sl.registerSingleton<GetSimilarMovieUseCase>(GetSimilarMovieUseCase());
 }

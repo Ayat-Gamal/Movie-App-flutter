@@ -61,4 +61,42 @@ class MovieRepositoryImpl implements MovieRepository {
       },
     );
   }
+
+  @override
+  Future<Either> getRecommendationMovies(int movieId) async{
+    var returnData = await sl<MovieService>().getRecommendationMovies(movieId);
+
+    return returnData.fold(
+          (error) {
+        return Left(error);
+      },
+          (data) {
+        var movies =
+        List.from(data['results'])
+            .map((item) => MovieMapper.toEntity(MovieModel.fromJson(item)))
+            .toList();
+
+        return Right(movies);
+      },
+    );
+  }
+
+  @override
+  Future<Either> getSimilarMovies(int movieId) async{
+    var returnData = await sl<MovieService>().getSimilarMovies(movieId);
+
+    return returnData.fold(
+          (error) {
+        return Left(error);
+      },
+          (data) {
+        var movies =
+        List.from(data['results'])
+            .map((item) => MovieMapper.toEntity(MovieModel.fromJson(item)))
+            .toList();
+
+        return Right(movies);
+      },
+    );
+  }
 }

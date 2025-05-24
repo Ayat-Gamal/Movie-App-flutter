@@ -81,7 +81,7 @@ class Signup extends StatelessWidget {
         title: "Sign Up",
         activeColor: AppColors.primary,
         onPressed: ()async => sl<SignupUseCase>().call(
-          params: SignupReqParam(email: _passwordController.text,
+          params: SignupReqParam(email: _emailController.text,
               password: _passwordController.text)
         ),
         onSuccess: (){

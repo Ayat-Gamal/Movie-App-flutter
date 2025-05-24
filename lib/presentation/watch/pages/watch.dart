@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/common/widget/appbar/app_bar.dart';
 import 'package:movie_app/domain/moive/entities/movie/movie_entity.dart';
+import 'package:movie_app/presentation/watch/widgets/recommendation_movies.dart';
+import 'package:movie_app/presentation/watch/widgets/similar_movies.dart';
 import 'package:movie_app/presentation/watch/widgets/video_overview.dart';
 import 'package:movie_app/presentation/watch/widgets/video_player.dart';
 import 'package:movie_app/presentation/watch/widgets/video_release_date.dart';
@@ -35,6 +37,10 @@ class Watch extends StatelessWidget {
             ),
             SizedBox(height: 16),
             VideoOverview(overview: movieEntity.overview),
+            SizedBox(height: 24),
+            RecommendationMovies(movieId: movieEntity.id),
+            SizedBox(height: 16),
+            SimilarMovies(movieId: movieEntity.id),
           ],
         ),
       ),

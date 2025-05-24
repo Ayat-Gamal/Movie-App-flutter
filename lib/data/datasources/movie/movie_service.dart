@@ -9,6 +9,9 @@ abstract class MovieService {
 
   Future<Either> getNowPLayingMovies();
   Future<Either> getMovieTrailer(int movieId);
+  Future<Either> getRecommendationMovies(int movieId);
+  Future<Either> getSimilarMovies(int movieId);
+
 }
 
 class MovieServiceImpl extends MovieService {
@@ -41,6 +44,30 @@ class MovieServiceImpl extends MovieService {
     try {
       var response = await sl<DioClient>().get(
         '${ApiUrl.movieTrailer}$movieId/videos?api_key=${ApiUrl.apiKey}',
+      );
+      return Right(response.data);
+    } on DioException catch (e) {
+      return Left(e.response!.data['message']);
+    }
+  }
+
+  @override
+  Future<Either> getRecommendationMovies(int movieId) async{
+    try {
+      var response = await sl<DioClient>().get(
+        '${ApiUrl.recommendationMovies}$movieId/recommendations?api_key=${ApiUrl.apiKey}',
+      );
+      return Right(response.data);
+    } on DioException catch (e) {
+      return Left(e.response!.data['message']);
+    }
+  }
+
+  @override
+  Future<Either> getSimilarMovies(int movieId) async{
+    try {
+      var response = await sl<DioClient>().get(
+        '${ApiUrl.similarMovies}$movieId/similar?api_key=${ApiUrl.apiKey}',
       );
       return Right(response.data);
     } on DioException catch (e) {

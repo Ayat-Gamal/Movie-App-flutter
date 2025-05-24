@@ -9,7 +9,11 @@ class ApiUrl {
   static const topRatedMovies = '${baseURL}movie/top_rated?api_key=';
   static const popularTV = '${baseURL}tv/popular?api_key=';
   static const movieTrailer = '${baseURL}movie/';
+  static const recommendationMovies = '${baseURL}movie/';
+  static const similarMovies = '${baseURL}movie/';
   static const trailerBaseURL = 'https://www.youtube.com/watch?v=';
+  //https://api.themoviedb.org/3/movie/{movie_id}/similar
+  // https://api.themoviedb.org/3/movie/{movie_id}/recommendations
 
    // https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=
  }
