@@ -6,7 +6,7 @@ import 'package:movie_app/domain/moive/entities/movie/movie_entity.dart';
 import 'package:movie_app/presentation/watch/pages/watch.dart';
 
 class MovieCard extends StatelessWidget {
-  final MovieEntity movieEntity;
+  final KeywordEntity movieEntity;
 
   const MovieCard({required this.movieEntity, super.key});
 

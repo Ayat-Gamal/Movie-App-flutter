@@ -1,5 +1,5 @@
 
-class MovieModel {
+class KeywordModel {
   final bool adult;
   final String backdropPath;
   final List<int> genreIds;
@@ -15,7 +15,7 @@ class MovieModel {
   final double voteAverage;
   final int voteCount;
 
-  MovieModel({
+  KeywordModel({
     required this.adult,
     required this.backdropPath,
     required this.genreIds,
@@ -31,7 +31,7 @@ class MovieModel {
     required this.voteAverage,
     required this.voteCount,
   });
-  factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
+  factory KeywordModel.fromJson(Map<String, dynamic> json) => KeywordModel(
     adult: json["adult"] ?? false,
     backdropPath: json["backdrop_path"] ?? '',
     genreIds: json["genre_ids"] != null

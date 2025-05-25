@@ -1,5 +1,5 @@
 
-class MovieEntity {
+class KeywordEntity {
   final bool adult;
   final String backdropPath;
   final List<int> genreIds;
@@ -15,7 +15,7 @@ class MovieEntity {
   final double voteAverage;
   final int voteCount;
 
-  MovieEntity({
+  KeywordEntity({
     required this.adult,
     required this.backdropPath,
     required this.genreIds,

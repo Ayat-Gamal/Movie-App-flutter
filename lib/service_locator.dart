@@ -11,12 +11,15 @@ import 'package:movie_app/domain/moive/usecases/get_similar_movies.dart';
 import 'package:movie_app/domain/moive/usecases/get_trending_movie.dart';
 import 'package:movie_app/domain/tv/repositories/tv.dart';
 import 'package:movie_app/domain/tv/usecase/get_popular_tv.dart';
+import 'package:movie_app/domain/tv/usecase/get_recommendation_tvs.dart';
+import 'package:movie_app/domain/tv/usecase/get_similar_tvs.dart';
 import 'data/datasources/tv/tv_service.dart';
 import 'data/repositories/movie/movie_repo_impl.dart';
 import 'data/repositories/tv/tv_repo_impl.dart';
 import 'domain/auth/usecases/signin.dart';
 import 'domain/auth/usecases/signup.dart';
 import 'domain/moive/repositories/movie_repo.dart';
+import 'domain/moive/usecases/get_keywords.dart';
 import 'domain/moive/usecases/get_movie_trailer.dart';
 
 final sl = GetIt.instance;
@@ -45,4 +48,7 @@ void setupServiceLocator() {
   sl.registerSingleton<GetMovieTrailerUseCase>(GetMovieTrailerUseCase());
   sl.registerSingleton<GetRecommendationMovieUseCase>(GetRecommendationMovieUseCase());
   sl.registerSingleton<GetSimilarMovieUseCase>(GetSimilarMovieUseCase());
+  sl.registerSingleton<GetRecommendationTVsUseCase>(GetRecommendationTVsUseCase());
+  sl.registerSingleton<GetSimilarTVsUseCase>(GetSimilarTVsUseCase());
+  sl.registerSingleton<GetTVKeywordsUseCase>(GetTVKeywordsUseCase());
 }

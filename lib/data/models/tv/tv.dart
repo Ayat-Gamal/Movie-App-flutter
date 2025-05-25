@@ -33,26 +33,26 @@ class TVModel {
 
   factory TVModel.fromJson(Map<String, dynamic> json) {
     return TVModel(
-      adult: json["adult"],
-      backdropPath: json["backdrop_path"],
+      adult: json["adult"] ?? '',
+      backdropPath: json["backdrop_path"] ?? '',
       genreIds:
           json["genre_ids"] == null
               ? []
               : List<int>.from(json["genre_ids"]!.map((x) => x)),
-      id: json["id"],
+      id: json["id"] ?? '',
       originCountry:
           json["origin_country"] == null
               ? []
               : List<String>.from(json["origin_country"]!.map((x) => x)),
-      originalLanguage: json["original_language"],
-      originalName: json["original_name"],
-      overview: json["overview"],
-      popularity: json["popularity"],
-      posterPath: json["poster_path"],
+      originalLanguage: json["original_language"] ?? '',
+      originalName: json["original_name"] ?? '',
+      overview: json["overview"] ?? '',
+      popularity: json["popularity"] ?? '',
+      posterPath: json["poster_path"] ?? '',
       firstAirDate: DateTime.tryParse(json["first_air_date"] ?? ""),
       name: json["name"],
       voteAverage: double.tryParse(json["vote_average"].toString()),
-      voteCount: json["vote_count"],
+      voteCount: json["vote_count"] ?? '',
     );
   }
 }

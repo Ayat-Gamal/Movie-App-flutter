@@ -18,7 +18,7 @@ class MovieRepositoryImpl implements MovieRepository {
       (data) {
         var movies =
             List.from(data['results'])
-                .map((item) => MovieMapper.toEntity(MovieModel.fromJson(item)))
+                .map((item) => MovieMapper.toEntity(KeywordModel.fromJson(item)))
                 .toList();
 
         return Right(movies);
@@ -37,7 +37,7 @@ class MovieRepositoryImpl implements MovieRepository {
       (data) {
         var movies =
             List.from(data['results'])
-                .map((item) => MovieMapper.toEntity(MovieModel.fromJson(item)))
+                .map((item) => MovieMapper.toEntity(KeywordModel.fromJson(item)))
                 .toList();
 
         return Right(movies);
@@ -73,7 +73,7 @@ class MovieRepositoryImpl implements MovieRepository {
           (data) {
         var movies =
         List.from(data['results'])
-            .map((item) => MovieMapper.toEntity(MovieModel.fromJson(item)))
+            .map((item) => MovieMapper.toEntity(KeywordModel.fromJson(item)))
             .toList();
 
         return Right(movies);
@@ -92,7 +92,7 @@ class MovieRepositoryImpl implements MovieRepository {
           (data) {
         var movies =
         List.from(data['results'])
-            .map((item) => MovieMapper.toEntity(MovieModel.fromJson(item)))
+            .map((item) => MovieMapper.toEntity(KeywordModel.fromJson(item)))
             .toList();
 
         return Right(movies);

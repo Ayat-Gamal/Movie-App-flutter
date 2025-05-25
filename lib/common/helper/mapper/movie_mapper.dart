@@ -4,9 +4,9 @@ import 'package:movie_app/domain/moive/entities/movie/movie_entity.dart';
 class MovieMapper{
 
 
-  static MovieEntity toEntity(MovieModel movie){
+  static KeywordEntity toEntity(KeywordModel movie){
 
-    return MovieEntity(
+    return KeywordEntity(
         adult: movie.adult,
         backdropPath: movie.backdropPath,
         genreIds: movie.genreIds,
