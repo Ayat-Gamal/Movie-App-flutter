@@ -9,6 +9,7 @@ import 'package:movie_app/presentation/home/widgets/now_palying_movies.dart';
 import 'package:movie_app/presentation/home/widgets/popular_tv.dart';
 import 'package:movie_app/presentation/home/widgets/trending_movies.dart';
 import '../../core/config/theme/app_colors.dart';
+import '../search/pages/search.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
@@ -21,7 +22,13 @@ class Home extends StatelessWidget {
         title: CustomText(text: "Home", size: 28, color: Colors.white),
         backgroundColor: AppColors.primary,
         height: 50,
+        leading: IconButton(
+            onPressed: (){
+              AppNavigation.push(context, Search());
+            }, icon: Icon(Icons.search,
+          color: Colors.white,
 
+        )),
         action: TextButton(
           onPressed: () async {
             await FirebaseAuth.instance.signOut();

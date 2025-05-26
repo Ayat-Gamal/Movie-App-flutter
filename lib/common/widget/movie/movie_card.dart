@@ -13,8 +13,8 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        AppNavigation.push(context, Watch( movieEntity: movieEntity,));
+      onTap: () {
+        AppNavigation.push(context, Watch(movieEntity: movieEntity));
       },
       child: Container(
         width: 190,
@@ -33,10 +33,12 @@ class MovieCard extends StatelessWidget {
                   color: Colors.white,
                   image: DecorationImage(
                     fit: BoxFit.fill,
+
                     image: NetworkImage(
                       AppImages.movieImageBasePath + movieEntity.posterPath,
                     ),
                   ),
+
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(8),
                     topRight: Radius.circular(8),

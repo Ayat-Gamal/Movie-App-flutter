@@ -26,6 +26,7 @@ dependencies:
   video_player:
   youtube_player_flutter:
   shared_preferences: ^2.5.3
+  cached_network_image:
 
 dev_dependencies:
   flutter_test:
